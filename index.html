@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felipe Sadrak | Dev Mobile & IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/index.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body class="bg-black text-white selection:bg-white selection:text-black font-sans">
+    <div class="grain"></div>
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 md:px-6 pointer-events-none py-4 md:py-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center pointer-events-auto">
+            <a href="#" class="group flex items-center gap-3">
+                <div class="w-10 h-10 bg-white flex items-center justify-center rounded-sm transition-transform group-hover:rotate-45">
+                    <i data-lucide="arrow-up-right" class="w-6 h-6 text-black stroke-[3]"></i>
+                </div>
+                <span class="text-xl font-black tracking-tighter uppercase font-display">Sadrak</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 bg-white/5 backdrop-blur-xl px-8 py-3 rounded-full border border-white/10 shadow-2xl">
+                <a href="#about" class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">Sobre</a>
+                <a href="#experience" class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">Experiência</a>
+                <a href="#services" class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">Serviços</a>
+                <a href="#projects" class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">Projetos</a>
+                <a href="#education" class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">Formação</a>
+                <a href="#certifications" class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">Certificações</a>
+                <a href="#contact" class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">Contato</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden md:block bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-transform">
+                    Contratar
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-open" class="md:hidden w-12 h-12 flex items-center justify-center bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 active:scale-95 transition-transform">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[100] flex flex-col md:hidden">
+        <div class="flex justify-between items-center px-8 py-8 border-b border-white/10">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-white flex items-center justify-center rounded-sm">
+                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-black stroke-[3]"></i>
+                </div>
+                <span class="text-xl font-black tracking-tighter uppercase font-display">Sadrak</span>
+            </div>
+            <button id="menu-close" class="p-3 bg-white text-black rounded-full shadow-lg active:scale-95 transition-transform">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <div class="flex-1 flex flex-col justify-center px-10 gap-6 overflow-y-auto">
+            <a href="#about" class="mobile-link text-5xl font-black tracking-tighter hover:translate-x-2 transition-all duration-300 uppercase font-display">Sobre</a>
+            <a href="#experience" class="mobile-link text-5xl font-black tracking-tighter hover:translate-x-2 transition-all duration-300 uppercase font-display">Experiência</a>
+            <a href="#services" class="mobile-link text-5xl font-black tracking-tighter hover:translate-x-2 transition-all duration-300 uppercase font-display">Serviços</a>
+            <a href="#projects" class="mobile-link text-5xl font-black tracking-tighter hover:translate-x-2 transition-all duration-300 uppercase font-display">Projetos</a>
+            <a href="#education" class="mobile-link text-5xl font-black tracking-tighter hover:translate-x-2 transition-all duration-300 uppercase font-display">Formação</a>
+            <a href="#certifications" class="mobile-link text-5xl font-black tracking-tighter hover:translate-x-2 transition-all duration-300 uppercase font-display">Certificações</a>
+            <a href="#contact" class="mobile-link text-5xl font-black tracking-tighter hover:translate-x-2 transition-all duration-300 uppercase font-display">Contato</a>
+        </div>
+
+        <div class="p-10 border-t border-white/10 flex flex-col gap-6">
+            <div class="flex gap-4">
+                <a href="https://linkedin.com/in/felipe-sadrak-dos-santos" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+                <a href="https://github.com/Felip3Sadrak" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="mailto:felipesadrak2@gmail.com" class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                </a>
+            </div>
+            <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">© 2026 Felipe Sadrak</div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden relative">
+            <div class="absolute top-0 left-0 w-full h-full -z-10">
+                <div class="parallax-bg absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-[120px]" data-speed="0.05"></div>
+                <div class="parallax-bg absolute bottom-20 right-10 w-96 h-96 bg-white/5 rounded-full blur-[120px]" data-speed="-0.03"></div>
+            </div>
+            <div class="max-w-7xl mx-auto">
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-widest mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                        </span>
+                        Tecnologia & Inovação
+                    </div>
+                    <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.85] mb-8 font-display uppercase">
+                        Felipe <br />
+                        <span class="text-white/20">Sadrak</span>
+                    </h1>
+                    <div class="flex gap-6 mb-10 opacity-30">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                        <i data-lucide="code-2" class="w-6 h-6"></i>
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <p class="text-xl md:text-2xl text-white/60 max-w-2xl mb-10 leading-tight font-medium">
+                        Analista de Suporte & Desenvolvedor de Software. <br />
+                        Focado em soluções escaláveis e infraestrutura robusta.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="bg-white text-black px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform">
+                            Ver Projetos <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="/src/img/Curriculo Felipe Sadrak.pdf.pdf" target="_blank" class="bg-transparent border border-white/20 px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-colors flex items-center gap-2">
+                            Download CV <i data-lucide="download" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 px-6 bg-black overflow-hidden border-y border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="reveal" style="transition-delay: 0.2s;">
+                        <div class="aspect-square rounded-3xl overflow-hidden bg-white/5 border border-white/10 relative group">
+                            <img 
+                                src="/src/img/FOTO-PERFIL.jpeg" 
+                                alt="Felipe Sadrak" 
+                                class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" 
+                                referrerPolicy="no-referrer"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+                    </div>
+                    <div class="reveal" style="transition-delay: 0.4s;">
+                        <div class="mb-12">
+                            <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4 uppercase font-display">Sobre Mim</h2>
+                            <p class="text-white/40 max-w-2xl font-medium uppercase tracking-widest text-xs">Suporte Técnico & Engenharia de Software</p>
+                            <div class="h-1 w-20 bg-white mt-6 rounded-full"></div>
+                        </div>
+                        <div class="space-y-6 text-white/60 leading-relaxed text-lg">
+                            <p>Sou Analista de Suporte Técnico e Desenvolvimento de Software, com foco na criação de soluções escaláveis e na administração robusta de camadas de dados (SQL & NoSQL).</p>
+                            <p>Minha atuação abrange desde o desenvolvimento de aplicações modernas (Node.js/Low-code) até a gestão de infraestrutura crítica, incluindo redes corporativas, servidores e segurança da informação.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 px-6 bg-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="reveal mb-12">
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4 uppercase font-display">Experiência</h2>
+                    <p class="text-white/40 max-w-2xl font-medium uppercase tracking-widest text-xs">Trajetória Profissional</p>
+                    <div class="h-1 w-20 bg-white mt-6 rounded-full"></div>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Job 1 -->
+                    <div class="reveal p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-all group">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-1 group-hover:text-white transition-colors">Analista de Suporte & Dev I</h3>
+                                <p class="text-white/40 font-bold uppercase tracking-widest text-[10px]">Solution - Soluções em T.I</p>
+                            </div>
+                            <div class="px-4 py-1.5 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-full">
+                                2026 - Presente
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <p class="text-white/60 leading-relaxed">Atuação estratégica na intersecção entre suporte especializado e engenharia de software, focando na criação de soluções escaláveis e na administração robusta de camadas de dados.</p>
+                            <ul class="grid grid-cols-1 gap-3 text-sm text-white/40">
+                                <li class="flex gap-3 items-center"><i data-lucide="arrow-right" class="w-4 h-4 text-white"></i> Node.js & Low-code Development</li>
+                                <li class="flex gap-3 items-center"><i data-lucide="arrow-right" class="w-4 h-4 text-white"></i> SQL & NoSQL Management</li>
+                                <li class="flex gap-3 items-center"><i data-lucide="arrow-right" class="w-4 h-4 text-white"></i> VPN, Firewall & File Server</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="reveal p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-all group" style="transition-delay: 0.2s;">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-1 group-hover:text-white transition-colors">Analista de Suporte Nível I</h3>
+                                <p class="text-white/40 font-bold uppercase tracking-widest text-[10px]">Solution - Soluções em T.I</p>
+                            </div>
+                            <div class="px-4 py-1.5 bg-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest rounded-full border border-white/10">
+                                2024 - 2026
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <p class="text-white/60 leading-relaxed">Atendimento a usuários, manutenção de sistemas e elaboração de documentação técnica. Expertise em configuração de redes e administração de sistemas.</p>
+                            <ul class="grid grid-cols-1 gap-3 text-sm text-white/40">
+                                <li class="flex gap-3 items-center"><i data-lucide="arrow-right" class="w-4 h-4 text-white"></i> Office 365 & Security</li>
+                                <li class="flex gap-3 items-center"><i data-lucide="arrow-right" class="w-4 h-4 text-white"></i> Infrastructure & Networks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 px-6 bg-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="reveal mb-12">
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4 uppercase font-display">Serviços</h2>
+                    <p class="text-white/40 max-w-2xl font-medium uppercase tracking-widest text-xs">Soluções Tecnológicas</p>
+                    <div class="h-1 w-20 bg-white mt-6 rounded-full"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="reveal p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all group" style="transition-delay: 0.1s;">
+                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-all">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Soluções com IA</h3>
+                        <p class="text-sm opacity-60 leading-relaxed">Modelos de machine learning e automação inteligente para otimizar processos críticos.</p>
+                    </div>
+                    <div class="reveal p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all group" style="transition-delay: 0.2s;">
+                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-all">
+                            <i data-lucide="monitor" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Dev Full-Stack</h3>
+                        <p class="text-sm opacity-60 leading-relaxed">Interfaces modernas e sistemas escaláveis focados em performance e UX.</p>
+                    </div>
+                    <div class="reveal p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all group" style="transition-delay: 0.3s;">
+                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-all">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Automação</h3>
+                        <p class="text-sm opacity-60 leading-relaxed">Workflows inteligentes com Python para eliminar tarefas repetitivas.</p>
+                    </div>
+                    <div class="reveal p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all group" style="transition-delay: 0.4s;">
+                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-all">
+                            <i data-lucide="shield" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Consultoria TI</h3>
+                        <p class="text-sm opacity-60 leading-relaxed">Estratégia técnica para infraestrutura, segurança e governança de dados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 px-6 bg-black text-white overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4 uppercase font-display">Meus Projetos</h2>
+                        <p class="text-white/40 max-w-xl font-medium uppercase tracking-widest text-xs">Uma seleção dos meus trabalhos recentes.</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: Guia da Cidade -->
+                    <div class="reveal group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:rotate-1 hover:shadow-2xl hover:shadow-white/5" style="transition-delay: 0.1s;">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="/src/img/cidade.svg" alt="Guia da Cidade" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" referrerPolicy="no-referrer" />
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">PHP</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">JavaScript</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Bootstrap</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">SQL</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 font-display uppercase tracking-tight">Guia da Cidade</h3>
+                            <p class="text-white/40 text-sm mb-6 leading-relaxed">Plataforma de utilidade pública conectando cidadãos e município, centralizando notícias e serviços municipais.</p>
+                            <a href="#" class="p-2 bg-white text-black rounded-lg inline-block hover:bg-white/80 transition-colors">
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Comprar em Arujá -->
+                    <div class="reveal group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:rotate-1 hover:shadow-2xl hover:shadow-white/5" style="transition-delay: 0.2s;">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="/src/img/comprar-em-aruja-da-sorte.png" alt="Comprar em Arujá dá Sorte" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" referrerPolicy="no-referrer" />
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">NoSQL</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Real-time</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Scalable</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 font-display uppercase tracking-tight">Arujá dá Sorte</h3>
+                            <p class="text-white/40 text-sm mb-6 leading-relaxed">Sistema digital de sorteios para a ACEA, modernizando a gestão de cupons fiscais e fomento ao comércio local.</p>
+                            <a href="#" class="p-2 bg-white text-black rounded-lg inline-block hover:bg-white/80 transition-colors">
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: AEXPO Event Manager -->
+                    <div class="reveal group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:rotate-1 hover:shadow-2xl hover:shadow-white/5" style="transition-delay: 0.3s;">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="/src/img/aexpo.png" alt="AEXPO Event Manager" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" referrerPolicy="no-referrer" />
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">ReactJS</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">NodeJS</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Firebase</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">QR Code</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 font-display uppercase tracking-tight">AEXPO Manager</h3>
+                            <p class="text-white/40 text-sm mb-6 leading-relaxed">Sistema de credenciamento e gestão de estandes com validação via QR Code e relatórios em tempo real.</p>
+                            <a href="#" class="p-2 bg-white text-black rounded-lg inline-block hover:bg-white/80 transition-colors">
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Futurize -->
+                    <div class="reveal group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:rotate-1 hover:shadow-2xl hover:shadow-white/5" style="transition-delay: 0.4s;">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="/src/img/futurize.png" alt="Futurize" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" referrerPolicy="no-referrer" />
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Java</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">SpringBoot</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">React JS</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">SQL</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 font-display uppercase tracking-tight">Futurize</h3>
+                            <p class="text-white/40 text-sm mb-6 leading-relaxed">Gerenciador de projetos acadêmicos intuitivo baseado em metodologias ágeis e Kanban.</p>
+                            <a href="#" class="p-2 bg-white text-black rounded-lg inline-block hover:bg-white/80 transition-colors">
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Automação Python -->
+                    <div class="reveal group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:rotate-1 hover:shadow-2xl hover:shadow-white/5" style="transition-delay: 0.5s;">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="/src/img/carteirinha.svg" alt="Automação de Carteirinhas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" referrerPolicy="no-referrer" />
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Python</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">openpyxl</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Excel</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 font-display uppercase tracking-tight">Automação Python</h3>
+                            <p class="text-white/40 text-sm mb-6 leading-relaxed">Geração automática de carteirinhas estudantis a partir de planilhas Excel para a Prefeitura de Itaquaquecetuba.</p>
+                            <a href="#" class="p-2 bg-white text-black rounded-lg inline-block hover:bg-white/80 transition-colors">
+                                <i data-lucide="code" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Enchentes SP -->
+                    <div class="reveal group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:rotate-1 hover:shadow-2xl hover:shadow-white/5" style="transition-delay: 0.6s;">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="/src/img/enchentes-sp.svg" alt="Enchentes SP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" referrerPolicy="no-referrer" />
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Data Viz</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">API</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Maps</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 font-display uppercase tracking-tight">Enchentes SP</h3>
+                            <p class="text-white/40 text-sm mb-6 leading-relaxed">Sistema de monitoramento e alerta de enchentes em tempo real para a região metropolitana de São Paulo.</p>
+                            <a href="#" class="p-2 bg-white text-black rounded-lg inline-block hover:bg-white/80 transition-colors">
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 7: Farma-Co -->
+                    <div class="reveal group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:rotate-1 hover:shadow-2xl hover:shadow-white/5" style="transition-delay: 0.7s;">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="/src/img/farma-co.svg" alt="Farma-Co" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" referrerPolicy="no-referrer" />
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Inventory</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Management</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">SaaS</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 font-display uppercase tracking-tight">Farma-Co</h3>
+                            <p class="text-white/40 text-sm mb-6 leading-relaxed">Gestão inteligente de estoques e vendas para farmácias, com integração de fornecedores e controle de validade.</p>
+                            <a href="#" class="p-2 bg-white text-black rounded-lg inline-block hover:bg-white/80 transition-colors">
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 8: DPO Fast -->
+                    <div class="reveal group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500 hover:scale-[1.02] hover:rotate-1 hover:shadow-2xl hover:shadow-white/5" style="transition-delay: 0.8s;">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="/src/img/dpo fast.png" alt="DPO Fast" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" referrerPolicy="no-referrer" />
+                        </div>
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">LGPD</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Privacy</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/10 rounded-md text-white/60">Compliance</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 font-display uppercase tracking-tight">DPO Fast</h3>
+                            <p class="text-white/40 text-sm mb-6 leading-relaxed">Ferramenta de conformidade com a LGPD, automatizando o mapeamento de dados e gestão de cookies.</p>
+                            <a href="#" class="p-2 bg-white text-black rounded-lg inline-block hover:bg-white/80 transition-colors">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-24 px-6 bg-black border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="reveal mb-12">
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4 uppercase font-display">Formação</h2>
+                    <p class="text-white/40 max-w-2xl font-medium uppercase tracking-widest text-xs">Base Acadêmica</p>
+                    <div class="h-1 w-20 bg-white mt-6 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="reveal p-8 rounded-3xl bg-white/5 border border-white/10 flex gap-6 group hover:border-white/20 transition-all">
+                        <div class="w-14 h-14 shrink-0 bg-white text-black rounded-2xl flex items-center justify-center">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-black text-white/30 mb-1 uppercase tracking-widest">2022 - 2024</div>
+                            <h3 class="text-xl font-bold mb-2">Análise e Desenvolvimento de Sistemas</h3>
+                            <p class="text-white/40 font-bold text-xs uppercase tracking-widest mb-4">FATEC Ferraz de Vasconcelos</p>
+                            <p class="text-sm text-white/60 leading-relaxed">Foco em sistemas de informação, aplicações web/mobile e segurança de software.</p>
+                        </div>
+                    </div>
+                    <div class="reveal p-8 rounded-3xl bg-white/5 border border-white/10 flex gap-6 group hover:border-white/20 transition-all" style="transition-delay: 0.2s;">
+                        <div class="w-14 h-14 shrink-0 bg-white text-black rounded-2xl flex items-center justify-center">
+                            <i data-lucide="database" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-black text-white/30 mb-1 uppercase tracking-widest">2019 - 2021</div>
+                            <h3 class="text-xl font-bold mb-2">Administração de Banco de Dados</h3>
+                            <p class="text-white/40 font-bold text-xs uppercase tracking-widest mb-4">ETEC - São Paulo</p>
+                            <p class="text-sm text-white/60 leading-relaxed">Especialização em modelagem de dados relacional e não relacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-24 px-6 bg-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="reveal flex items-center justify-between mb-12">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4 uppercase font-display">Certificações</h2>
+                        <p class="text-white/40 max-w-2xl font-medium uppercase tracking-widest text-xs">Validação de Conhecimento</p>
+                        <div class="h-1 w-20 bg-white mt-6 rounded-full"></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <button id="cert-prev" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                        </button>
+                        <button id="cert-next" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="reveal grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20 items-center">
+                    <div class="lg:col-span-1">
+                        <h3 class="text-2xl font-black uppercase font-display mb-4 tracking-tight">Distribuição Técnica</h3>
+                        <p class="text-white/40 text-sm leading-relaxed mb-6">
+                            Visualização do foco técnico baseado nas certificações obtidas. Grande concentração em **IA Generativa** e **Desenvolvimento Backend**.
+                        </p>
+                        <div class="flex items-center gap-3 mb-8">
+                            <div class="px-4 py-2 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-full">
+                                27 Certificados Totais
+                            </div>
+                            <div class="px-4 py-2 bg-white/5 border border-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest rounded-full">
+                                5 Emissores Principais
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest">
+                                <span class="text-white/60">Google Cloud</span>
+                                <span>6 Certificados</span>
+                            </div>
+                            <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-white w-[22%]"></div>
+                            </div>
+                            <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest">
+                                <span class="text-white/60">DIO (Dev & IA)</span>
+                                <span>11 Certificados</span>
+                            </div>
+                            <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-white w-[40%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 bg-white/5 rounded-3xl border border-white/10 p-8">
+                        <div id="cert-chart" class="w-full h-[300px]"></div>
+                    </div>
+                </div>
+
+                <div id="cert-carousel" class="carousel-container no-scrollbar flex gap-4 overflow-x-auto pb-8">
+                    <!-- Google Cloud -->
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm leading-tight mb-1">Inspect Rich Documents with Gemini</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-2">Google Cloud • Nov 2024</div>
+                            <a href="/src/img/Inspect Rich Documents with Gemini Multimodality and Multimodal RAG Skill Badge.png" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white/40 group-hover:text-black/60 flex items-center gap-1">
+                                Ver <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm leading-tight mb-1">Develop GenAI Apps with Gemini</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-2">Google Cloud • Nov 2024</div>
+                            <a href="/src/img/Develop GenAI Apps with Gemini and Streamlit.jpg" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white/40 group-hover:text-black/60 flex items-center gap-1">
+                                Ver <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm leading-tight mb-1">Beginner: Introduction to Generative AI</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-2">Google Cloud • Sep 2024</div>
+                            <a href="/src/img/Google beginner.jpg" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white/40 group-hover:text-black/60 flex items-center gap-1">
+                                Ver <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm leading-tight mb-1">Prompt Design in Vertex AI</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-2">Google Cloud • Sep 2024</div>
+                            <a href="/src/img/google- prompt deisgn.jpg" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white/40 group-hover:text-black/60 flex items-center gap-1">
+                                Ver <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- DIO -->
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm leading-tight mb-1">Fundamentos de IA Generativa</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-2">DIO • Oct 2024</div>
+                            <a href="/src/img/Dio- Fundamentos de IA generativa.jpg" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white/40 group-hover:text-black/60 flex items-center gap-1">
+                                Ver <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm leading-tight mb-1">Python Backend Developer</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-2">DIO • Aug 2024</div>
+                            <a href="/src/img/DIO - Python Backend.jpg" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white/40 group-hover:text-black/60 flex items-center gap-1">
+                                Ver <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm leading-tight mb-1">Kotlin Backend Developer</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-2">DIO • Jul 2024</div>
+                            <a href="/src/img/DIO - Kotlin Backend_page-0001.jpg" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white/40 group-hover:text-black/60 flex items-center gap-1">
+                                Ver <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Cisco -->
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">CCNAv7: Switching, Routing, and Wireless</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">Cisco • Jun 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">CCNAv7: Introduction to Networks</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">Cisco • Apr 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">NDG Linux Unhatched</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">Cisco • Sep 2023</div>
+                        </div>
+                    </div>
+
+                    <!-- DIO -->
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Bootcamp Vivo - Python AI Backend</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jun 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Bootcamp Nexa - GenAI & Claude 3</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jun 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Python Data Analytics</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • May 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Introdução a Banco de Dados NoSQL</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Estruturas de Controle em Kotlin</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Padrões de Projeto em Kotlin</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Projetos ágeis com SCRUM</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jan 2023</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Git e GitHub</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Open Source no GitHub</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">POO com Kotlin</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Introdução a SQL</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">DIO • Jan 2024</div>
+                        </div>
+                    </div>
+
+                    <!-- Others -->
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Google Data Studio</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">Cursa • Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Google Analytics Iniciantes</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">Google • Feb 2024</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Power BI - Análise de Dados</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">Fundação Bradesco • Jul 2022</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">C# Avançado</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">Fundação Bradesco • Apr 2020</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">HTML Básico</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">Fundação Bradesco • Feb 2023</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Hardware e Software</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">Fundação Bradesco • Feb 2022</div>
+                        </div>
+                    </div>
+                    <div class="carousel-item w-[300px] md:w-[350px] reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all flex items-center gap-4 group">
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm leading-tight mb-1">Locus de Motivação Profissional</h4>
+                            <div class="text-[10px] font-bold uppercase tracking-widest opacity-40">ETEC • Oct 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6 bg-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="reveal bg-white rounded-[40px] p-8 md:p-16 text-black overflow-hidden relative">
+                    <div class="relative grid lg:grid-cols-2 gap-16">
+                        <div>
+                            <h2 class="text-5xl md:text-6xl font-black tracking-tighter mb-4 uppercase font-display">Vamos <br />Conversar</h2>
+                            <p class="text-black/40 max-w-xl font-medium">Estou sempre aberto a novas oportunidades e parcerias estratégicas.</p>
+                            
+                            <div class="space-y-8 mt-12">
+                                <div class="flex items-center gap-6">
+                                    <div class="w-14 h-14 bg-black text-white rounded-2xl flex items-center justify-center"><i data-lucide="mail" class="w-6 h-6"></i></div>
+                                    <div>
+                                        <div class="text-[10px] text-black/40 font-black uppercase tracking-widest">Email</div>
+                                        <div class="text-xl font-bold">felipesadrak2@gmail.com</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-6">
+                                    <div class="w-14 h-14 bg-black text-white rounded-2xl flex items-center justify-center"><i data-lucide="linkedin" class="w-6 h-6"></i></div>
+                                    <div>
+                                        <div class="text-[10px] text-black/40 font-black uppercase tracking-widest">LinkedIn</div>
+                                        <a href="https://linkedin.com/in/felipe-sadrak-dos-santos" target="_blank" rel="noopener noreferrer" class="text-xl font-bold hover:text-black/60 transition-colors">/felipe-sadrak-dos-santos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-black/5 p-8 md:p-10 rounded-3xl border border-black/10">
+                            <form id="contact-form" class="space-y-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <input type="text" id="contact-name" placeholder="Seu Nome" required class="w-full px-6 py-4 bg-white border border-black/10 rounded-2xl focus:outline-none focus:border-black transition-colors" />
+                                    <input type="email" id="contact-email" placeholder="seu@email.com" required class="w-full px-6 py-4 bg-white border border-black/10 rounded-2xl focus:outline-none focus:border-black transition-colors" />
+                                </div>
+                                <textarea id="contact-message" rows="4" placeholder="Como posso te ajudar?" required class="w-full px-6 py-4 bg-white border border-black/10 rounded-2xl focus:outline-none focus:border-black transition-colors resize-none"></textarea>
+                                <button type="submit" id="contact-submit" class="w-full bg-black text-white py-5 rounded-2xl font-bold hover:bg-black/80 transition-all flex items-center justify-center gap-2 group">
+                                    <span id="submit-text">Enviar Mensagem</span>
+                                    <i data-lucide="arrow-up-right" class="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 px-6 border-t border-white/5 text-center bg-black">
+        <div class="text-[10px] text-white/20 font-black uppercase tracking-[0.4em]">
+            © 2026 Felipe Sadrak • Tecnologia & Inovação
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-4', 'md:py-6');
+            } else {
+                navbar.classList.remove('py-3');
+                navbar.classList.add('py-4', 'md:py-6');
+            }
+        });
+
+        // Mobile menu logic
+        const menuOpen = document.getElementById('menu-open');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuOpen.addEventListener('click', () => mobileMenu.classList.add('active'));
+        menuClose.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        });
+
+        // Reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Carousel logic
+        const certCarousel = document.getElementById('cert-carousel');
+        const certPrev = document.getElementById('cert-prev');
+        const certNext = document.getElementById('cert-next');
+
+        if (certCarousel && certPrev && certNext) {
+            certPrev.addEventListener('click', () => {
+                certCarousel.scrollBy({ left: -350, behavior: 'smooth' });
+            });
+            certNext.addEventListener('click', () => {
+                certCarousel.scrollBy({ left: 350, behavior: 'smooth' });
+            });
+        }
+
+        // ApexCharts Initialization
+        const options = {
+            series: [{
+                name: 'Certificações',
+                data: [6, 3, 11, 4, 3],
+            }],
+            chart: {
+                height: 300,
+                type: 'radar',
+                toolbar: { show: false },
+                dropShadow: {
+                    enabled: true,
+                    blur: 1,
+                    left: 1,
+                    top: 1
+                }
+            },
+            colors: ['#FFFFFF'],
+            stroke: {
+                width: 2
+            },
+            fill: {
+                opacity: 0.2
+            },
+            markers: {
+                size: 4,
+                colors: ['#000000'],
+                strokeColor: '#FFFFFF',
+                strokeWidth: 2,
+            },
+            xaxis: {
+                categories: ['Google Cloud', 'Cisco', 'DIO', 'F. Bradesco', 'Outros'],
+                labels: {
+                    show: true,
+                    style: {
+                        colors: ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
+                        fontSize: "10px",
+                        fontWeight: 700,
+                        fontFamily: 'Space Grotesk'
+                    }
+                }
+            },
+            yaxis: {
+                show: false
+            },
+            grid: {
+                show: false
+            }
+        };
+
+        const chart = new ApexCharts(document.querySelector("#cert-chart"), options);
+        chart.render();
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            parallaxElements.forEach(el => {
+                const speed = el.getAttribute('data-speed');
+                const yPos = -(window.scrollY * speed);
+                el.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+    </script>
+    <script type="module" src="/src/contact.ts"></script>
+</body>
+</html>

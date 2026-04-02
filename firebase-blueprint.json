@@ -1,0 +1,22 @@
+{
+  "entities": {
+    "contacts": {
+      "title": "Contacts",
+      "description": "Messages sent from the contact form",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/contacts/{contactId}": {
+      "schema": "contacts",
+      "description": "Collection of contact form submissions"
+    }
+  }
+}
